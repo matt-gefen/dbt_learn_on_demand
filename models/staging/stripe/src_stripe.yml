@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+
+    - name: stripe
+      description: A clone of a Postgres application database.
+      database: raw
+      tables:
+        - name: payments
+          description: Raw payments data.
+          freshness:
+            warn_after: {count: 12, period: hour}
+            error_after: {count: 25, period: hour}
+
